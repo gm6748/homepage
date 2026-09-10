@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>対話から、会社の「まだ名前のない価値」を見つける</title>
+<style>
+  :root{--text:#1f2328;--muted:#667085;--line:#d9dee5;--soft:#f6f8fa;--soft2:#eef2f5;--accent:#1f5d46;--accent2:#dfeee8;--max:980px}
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--text);background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","YuGothic","Meiryo",sans-serif;line-height:1.85;font-size:16px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:56px 28px 88px}
+  h1,h2,h3{line-height:1.45;margin-top:0}
+  h1{font-size:2.2rem;letter-spacing:.01em;margin-bottom:10px}
+  h2{font-size:1.55rem;margin:64px 0 18px;padding-bottom:10px;border-bottom:2px solid var(--text)}
+  p{margin:0 0 1.15em}
+  .lead{color:var(--muted);font-size:1.02rem;margin-bottom:38px}
+  .hero{border-top:6px solid var(--accent);padding-top:24px}
+  .summary{background:var(--soft);border:1px solid var(--line);padding:28px;border-radius:12px;margin:34px 0 18px}
+  .summary h2{margin:0 0 18px;border:none;padding:0;font-size:1.35rem}
+  .point{padding:18px 0;border-top:1px solid var(--line)}
+  .point:first-of-type{border-top:none;padding-top:0}
+  .point strong{display:block;font-size:1.06rem;margin-bottom:4px}
+  .key{background:var(--accent2);border-left:5px solid var(--accent);padding:18px 20px;margin:26px 0;font-weight:700}
+  blockquote{margin:18px 0 24px;padding:14px 18px;border-left:4px solid #a9b5bf;background:#fafbfc}
+  blockquote p{margin:.25em 0}
+  table{width:100%;border-collapse:collapse;margin:18px 0 30px;font-size:.95rem}
+  th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top}
+  th{background:var(--soft2);text-align:left}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 30px}
+  .flow span{padding:8px 12px;border:1px solid var(--line);background:#fff;border-radius:999px;font-weight:700}
+  .step{border-left:4px solid var(--accent);padding:4px 0 4px 18px;margin:24px 0}
+  .step .n{color:var(--accent);font-weight:800;letter-spacing:.04em}
+  .questions{background:#111827;color:#fff;padding:26px;border-radius:12px;margin:22px 0 36px}
+  .questions p{margin:.55em 0;font-weight:700}
+  .brand-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0 30px}
+  .brand-grid div{border:1px solid var(--line);border-radius:10px;padding:16px}
+  .brand-grid strong{display:block;margin-bottom:4px;color:var(--accent)}
+  .closing{margin-top:56px;padding:30px;border:2px solid var(--text);border-radius:14px}
+  .closing h2{margin:0 0 16px;border:0;padding:0}
+  .big{font-size:1.35rem;font-weight:800;line-height:1.7}
+  .note{margin-top:48px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:16px}
+  @media(max-width:700px){.wrap{padding:34px 18px 60px}h1{font-size:1.72rem}h2{font-size:1.32rem}.brand-grid{grid-template-columns:1fr}}
+  @media print{body{font-size:11pt}.wrap{max-width:none;padding:14mm}h2{break-after:avoid}.summary,.questions,.closing,.brand-grid div{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <h1>対話から、会社の「まだ名前のない価値」を見つける</h1>
+    <p class="lead">テツシンデザイン 古内さん × ミドリ印刷 坂本社長の対話から学ぶこと</p>
+  </header>
+
+  <section class="summary">
+    <h2>まず30秒で読める版</h2>
+    <div class="point"><strong>① 「印刷する会社」から「残す会社」へ</strong>人の想い、歴史、記憶を、物として未来に残す。設備や技術だけではなく、ミドリ印刷の仕事の本質をそこまで引き上げて捉える。</div>
+    <div class="point"><strong>② 紙とデジタルを敵対させない</strong>「印刷を残すためにデジタルをやる」。デジタル化するか、紙を守るかではなく、デジタルも使いながら紙だからこそ残せる価値をつくる。</div>
+    <div class="point"><strong>③ 紙は「情報媒体」だけではない</strong>手に持つ、ページをめくる、戻って読む、質感を感じる、所有する、保存する。「手で読む」「ページをめくる間」まで含めて、紙を体験として設計する。</div>
+    <div class="point"><strong>④ ブランドは「会社を一人の人間として考える」と見えやすい</strong>「ミドリ君」はマスコットではなく判断基準。ミドリ印刷が一人の人間なら、何を言うか、何を言わないか、何色を選ぶか、どう振る舞うか。</div>
+    <div class="point"><strong>⑤ 強みは「何ができます」ではなく「なぜそうしているか」にある</strong>なぜ手間のかかる仕事を選ぶのか。なぜ紙を残したいのか。なぜ長く付き合う顧客がいるのか。そこまで聞くと、その会社固有の価値になる。</div>
+    <div class="point"><strong>⑥ デザインは、成果物をつくるところで終わらない</strong>会社案内から、ブランド、紙の体験、職人技、空間、コミュニティ、事業へ。デザインとは「何を作るか」だけでなく「会社の価値をどう未来へ展開するか」を考える仕事。</div>
+    <div class="point"><strong>⑦ 良いヒアリングは「質問すること」ではない</strong>相手が何気なく使った曖昧な言葉を流さず、そこから本質を掘り出す。</div>
+    <div class="key">拾う → 掘る → 比べる → 確かめる → 名づける → 広げる → 着地する</div>
+    <p><strong>この対談を一言でいうなら：</strong><br>デザインとは、まだ言葉になっていない価値を対話によって発見し、言葉・物・体験・事業へ広げていく仕事。</p>
+  </section>
+
+  <h2>ここから先｜興味を持った人だけ深く読む</h2>
+
+  <section>
+    <h2>01｜「会社案内を作るための情報」を集めていない</h2>
+    <p>通常の会社案内のヒアリングなら、「創業年」「主要顧客」「設備」「事業内容」「強み」を聞きます。そこで集まるのは掲載情報です。</p>
+    <p>一方、古内さんが探しているのは、<strong>「この会社は、なぜ存在しているのか」</strong>です。</p>
+    <blockquote><p>「中身というのは具体的にどのあたりですか？」</p><p>「ちゃんとした印刷物とは具体的にどういうものでしょうか？」</p></blockquote>
+    <p>何気ない抽象語を流さず止める。そこから設備、品質、納期、顧客、仕事の選び方へと掘り下げていきます。</p>
+    <div class="key">質問項目を消化するより、相手の言葉の中にある「未定義語」を見つける。</div>
+  </section>
+
+  <section>
+    <h2>02｜「強み」を聞かずに、強みを発見する</h2>
+    <p>「御社の強みは何ですか？」と聞けば、「品質」「対応力」「信頼」「実績」といった一般語になりがちです。</p>
+    <p>古内さんは直接「強み」を聞きません。代わりに、どんな印刷物を「ちゃんとした」と考えるのか、デジタルをどう捉えるのか、なぜクリエイティブ部門をつくったのか、どんな顧客と長く付き合っているのかを聞きます。</p>
+    <p><strong>「手間の必要な仕事を引き受ける」<br>「大切なものを残す」<br>「企画から関わる」<br>「長く伴走する」</strong></p>
+    <p>という、その会社らしい特徴が見えてきます。</p>
+    <div class="key">強みは、本人に強みを聞くより、選択の履歴を聞いた方が見つかる。</div>
+  </section>
+
+  <section>
+    <h2>03｜「何をする会社か」から「なぜする会社か」へ上げる</h2>
+    <table><tr><th>レベル</th><th>言い方</th></tr><tr><td>1</td><td>「記念誌を印刷しています」</td></tr><tr><td>2</td><td>「保存性の高い印刷物が得意です」</td></tr><tr><td>3</td><td><strong>「人の歴史や記憶を残しています」</strong></td></tr></table>
+    <p>古内さんは、具体的な仕事内容から一段抽象度を上げ、<strong>「何かを残していく人たち」</strong>と再定義します。</p>
+    <p>ブランドコンセプトは、多くの場合この「行為の意味」まで上がったところにあります。</p>
+  </section>
+
+  <section>
+    <h2>04｜「印刷を残すためにデジタルをやる」は強いブランドの種</h2>
+    <blockquote><p><strong>「リアル（印刷）を残すためにデジタルをやっている」</strong></p></blockquote>
+    <p>デジタル化に迎合する会社でもない。紙に固執してデジタルを否定する会社でもない。目的は紙の価値を残すこと。デジタルはそのための手段。</p>
+    <div class="key">少し矛盾して聞こえる言葉ほど、ブランドの種になりやすい。修正せず、掘る。</div>
+  </section>
+
+  <section>
+    <h2>05｜紙の価値を「機能」ではなく「体験」へ変換する</h2>
+    <p>紙の良さを「保存性」「一覧性」「書き込みやすさ」だけで説明すると機能論で終わります。</p>
+    <p>古内さんは、<strong>「ページをめくる間」「手で読む」「物感」</strong>という身体性へ話を広げます。</p>
+    <p><strong>「情報をどうレイアウトするか」</strong>から、<br><strong>「どう触らせるか」「どんな速度で読ませるか」「どこで止めるか」「何を持ち帰らせるか」</strong>へ。</p>
+  </section>
+
+  <section>
+    <h2>06｜「ミドリ君」はキャラクターではなく、判断OS</h2>
+    <p>「ミドリ君」はマスコットを作る話ではありません。</p>
+    <blockquote><p>この会社なら、こんな言葉は使わない。</p><p>この会社なら、この色は選ばない。</p><p>この会社なら、この写真は似合わない。</p></blockquote>
+    <div class="key">会社案内、Web、SNS、営業資料が、全部同じ人格から出てくる。その状態が「トーン＆マナーが揃う」ということ。</div>
+  </section>
+
+  <section>
+    <h2>07｜ブランドは「言葉」だけで終わらない</h2>
+    <p>対話は、ブランドブックの話から、工場上階の空きスペース、若手デザイナー、学生、紙見本、断裁・出力体験、クリエイターラウンジ構想へと広がりました。</p>
+    <div class="flow"><span>ブランド思想</span><span>→ 体験</span><span>→ 空間</span><span>→ コミュニティ</span><span>→ 事業</span></div>
+    <p><strong>ブランドは見た目ではなく、企業行動にまで実装されて初めて強くなる。</strong></p>
+  </section>
+
+  <section>
+    <h2>08｜今回の対話に表れている「デザイナーの仕事」</h2>
+    <div class="flow"><span>理念</span><span>→ 言語化</span><span>→ ブランド</span><span>→ ビジュアル</span><span>→ プロダクト</span><span>→ 空間</span><span>→ コミュニティ</span><span>→ 事業</span></div>
+    <p><strong>デザイナーは与えられた制作物を整える人ではなく、会社や地域がどこへ行くかを一緒に考え、それを見える形に変える人</strong>だと捉えられます。</p>
+  </section>
+
+  <section>
+    <h2>09｜古内さんの質問構造</h2>
+    <div class="step"><div class="n">STEP 1　拾う</div>相手の言葉の中から気になる単語を見つける。「中身」「ちゃんとした」「残したい」など。</div>
+    <div class="step"><div class="n">STEP 2　掘る</div>「具体的には？」「例えば？」で、抽象語を事実に下ろす。</div>
+    <div class="step"><div class="n">STEP 3　比べる</div>紙／デジタル、効率／手間など、対立軸を置いて価値観を浮かび上がらせる。</div>
+    <div class="step"><div class="n">STEP 4　確かめる</div>歴史、顧客、実績、過去の意思決定を聞き、「言っていること」と「してきたこと」が一致するかを見る。</div>
+    <div class="step"><div class="n">STEP 5　名づける</div>「つまり御社は○○という会社なのでは？」と、こちらから仮説を言葉にする。</div>
+    <div class="step"><div class="n">STEP 6　広げる</div>ブランドブックだけでなく、空間、商品、サービス、採用、コミュニティまで可能性を展開する。</div>
+    <div class="step"><div class="n">STEP 7　着地する</div>最後は「では、何をデザインすべきか」に戻す。</div>
+  </section>
+
+  <section>
+    <h2>10｜若手が明日から使える7問</h2>
+    <div class="questions">
+      <p>「いまおっしゃった○○って、具体的にはどういう意味ですか？」</p>
+      <p>「例えば、どんな仕事でそれが一番表れましたか？」</p>
+      <p>「なぜ、それをそこまで大切にしているんですか？」</p>
+      <p>「逆に、御社らしくない仕事は何ですか？」</p>
+      <p>「それは昔からですか？ きっかけがありますか？」</p>
+      <p>「お客様は、そこをどう評価していると思いますか？」</p>
+      <p>「つまり御社は○○な会社だ、と考えると近いでしょうか？」</p>
+    </div>
+    <p>特に最後の一問が重要です。<strong>聞いて終わる人と、デザインにつなげる人の境目</strong>になります。</p>
+  </section>
+
+  <section>
+    <h2>11｜そのまま模倣しないための注意点</h2>
+    <p>若手が早い段階から他社事例や自分の知識を入れすぎると、自分の考えにクライアントを誘導する危険があります。</p>
+    <table><tr><th>前半</th><td><strong>聞く</strong></td></tr><tr><th>中盤</th><td><strong>整理する</strong></td></tr><tr><th>後半</th><td><strong>仮説をぶつける</strong></td></tr></table>
+    <p>そして、仮説と事実を混同しないこと。「ミドリ印刷＝残す会社」は強い仮説ですが、社員、顧客、過去の仕事、今後の経営方針から検証していく必要があります。</p>
+  </section>
+
+  <section>
+    <h2>12｜今回見つかった「ミドリ印刷のブランド仮説」</h2>
+    <div class="brand-grid">
+      <div><strong>残す</strong>使い捨てではなく、未来に残るものをつくる。</div>
+      <div><strong>物化する</strong>想い、言葉、歴史を物理的なものとして残す。</div>
+      <div><strong>手で読む</strong>紙を身体的な体験として考える。</div>
+      <div><strong>役に立つ</strong>「いつも何かの役に立ちたい」という創業精神。</div>
+      <div><strong>手間を引き受ける</strong>簡単なものより、品質や相談が必要な仕事を選ぶ。</div>
+      <div><strong>職人技</strong>紙目、色、断裁、製本など、見えない知識を持っている。</div>
+      <div><strong>リアル × デジタル</strong>デジタル化するためではなく、リアルな価値を残すためにデジタルを使う。</div>
+      <div><strong>開く</strong>工場や技術をクリエイター、学生、地域へ開く。</div>
+    </div>
+    <div class="key">ブランドの核候補：<br>「大切なものを、残る形にする。」</div>
+    <p>これは現時点での仮説です。すぐに企業スローガンとして決定するのではなく、今後の検証対象として扱うのが適切です。</p>
+  </section>
+
+  <section class="closing">
+    <h2>最後に｜デザイナーへ</h2>
+    <p>今回学んでほしいのは、「ミドリ君」という案や「クリエイターラウンジ」という企画そのものではありません。</p>
+    <p>重要なのは、<strong>それらがどうやって生まれたか</strong>です。</p>
+    <p>最初にあったのは「ちゃんとした印刷物」という何気ない一言でした。そこを「具体的には？」と止めた。そこから、品質、歴史、紙、デジタル、残す、物感、会社の人格、職人、空間、コミュニティまで話が広がっていきました。</p>
+    <p>だからデザイナーに必要なのは、最初から答えを持っていることではありません。</p>
+    <p class="big">相手の言葉に引っかかり、掘り、つなぎ、意味を見つけ、「こういうことではないですか？」と返せること。</p>
+    <p>その往復の中から、クライアント自身もまだ知らなかった価値が見えてきます。</p>
+    <div class="key">答えをデザインする前に、問いによって価値を発見する。</div>
+  </section>
+
+  <p class="note">社内共有用整理資料。テツシンデザイン古内さんとミドリ印刷坂本社長の対話内容をもとに、若手デザイナーが実務へ応用しやすいよう再構成。</p>
+</main>
+</body>
+</html>
