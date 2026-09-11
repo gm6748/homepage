@@ -1,189 +1,554 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>対話から、会社の「まだ名前のない価値」を見つける</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>博多通りもんのための珈琲｜分岐式 味づくりフォーム</title>
 <style>
-  :root{--text:#1f2328;--muted:#667085;--line:#d9dee5;--soft:#f6f8fa;--soft2:#eef2f5;--accent:#1f5d46;--accent2:#dfeee8;--max:980px}
-  *{box-sizing:border-box}
-  body{margin:0;color:var(--text);background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","YuGothic","Meiryo",sans-serif;line-height:1.85;font-size:16px}
-  .wrap{max-width:var(--max);margin:0 auto;padding:56px 28px 88px}
-  h1,h2,h3{line-height:1.45;margin-top:0}
-  h1{font-size:2.2rem;letter-spacing:.01em;margin-bottom:10px}
-  h2{font-size:1.55rem;margin:64px 0 18px;padding-bottom:10px;border-bottom:2px solid var(--text)}
-  p{margin:0 0 1.15em}
-  .lead{color:var(--muted);font-size:1.02rem;margin-bottom:38px}
-  .hero{border-top:6px solid var(--accent);padding-top:24px}
-  .summary{background:var(--soft);border:1px solid var(--line);padding:28px;border-radius:12px;margin:34px 0 18px}
-  .summary h2{margin:0 0 18px;border:none;padding:0;font-size:1.35rem}
-  .point{padding:18px 0;border-top:1px solid var(--line)}
-  .point:first-of-type{border-top:none;padding-top:0}
-  .point strong{display:block;font-size:1.06rem;margin-bottom:4px}
-  .key{background:var(--accent2);border-left:5px solid var(--accent);padding:18px 20px;margin:26px 0;font-weight:700}
-  blockquote{margin:18px 0 24px;padding:14px 18px;border-left:4px solid #a9b5bf;background:#fafbfc}
-  blockquote p{margin:.25em 0}
-  table{width:100%;border-collapse:collapse;margin:18px 0 30px;font-size:.95rem}
-  th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top}
-  th{background:var(--soft2);text-align:left}
-  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 30px}
-  .flow span{padding:8px 12px;border:1px solid var(--line);background:#fff;border-radius:999px;font-weight:700}
-  .step{border-left:4px solid var(--accent);padding:4px 0 4px 18px;margin:24px 0}
-  .step .n{color:var(--accent);font-weight:800;letter-spacing:.04em}
-  .questions{background:#111827;color:#fff;padding:26px;border-radius:12px;margin:22px 0 36px}
-  .questions p{margin:.55em 0;font-weight:700}
-  .brand-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0 30px}
-  .brand-grid div{border:1px solid var(--line);border-radius:10px;padding:16px}
-  .brand-grid strong{display:block;margin-bottom:4px;color:var(--accent)}
-  .closing{margin-top:56px;padding:30px;border:2px solid var(--text);border-radius:14px}
-  .closing h2{margin:0 0 16px;border:0;padding:0}
-  .big{font-size:1.35rem;font-weight:800;line-height:1.7}
-  .note{margin-top:48px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:16px}
-  @media(max-width:700px){.wrap{padding:34px 18px 60px}h1{font-size:1.72rem}h2{font-size:1.32rem}.brand-grid{grid-template-columns:1fr}}
-  @media print{body{font-size:11pt}.wrap{max-width:none;padding:14mm}h2{break-after:avoid}.summary,.questions,.closing,.brand-grid div{break-inside:avoid}}
+:root{
+  --bg:#f6f2ec;
+  --paper:#fffdf9;
+  --ink:#2d251f;
+  --muted:#756a61;
+  --line:#ddd2c7;
+  --accent:#7a4b2c;
+  --accent2:#c69a71;
+  --soft:#efe4d8;
+  --soft2:#f8f2eb;
+  --green:#556b58;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(198,154,113,.16), transparent 28%),
+    var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic",Meiryo,sans-serif;
+  line-height:1.7;
+}
+.wrap{max-width:980px;margin:0 auto;padding:32px 18px 72px}
+.hero{
+  background:linear-gradient(135deg,#fffefb 0%,#efe2d4 100%);
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:34px 34px 30px;
+  box-shadow:0 16px 48px rgba(59,39,24,.08);
+}
+.eyebrow{
+  color:var(--accent);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.22;margin:8px 0 14px;letter-spacing:-.03em}
+.hero p{margin:0;color:#574c44;font-size:16px}
+.point{
+  margin-top:18px;
+  border-left:5px solid var(--accent);
+  background:rgba(255,255,255,.68);
+  border-radius:10px;
+  padding:14px 16px;
+  font-weight:800;
+}
+.meta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+.badge{
+  border:1px solid rgba(122,75,44,.22);
+  background:#fffaf5;
+  color:var(--accent);
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:12px;
+  font-weight:800;
+}
+.card{
+  margin-top:22px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:28px;
+  box-shadow:0 8px 28px rgba(60,40,25,.05);
+}
+.progress-wrap{margin-bottom:24px}
+.progress-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-bottom:8px}
+.progress{height:8px;border-radius:999px;background:#ebe4dc;overflow:hidden}
+.bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.25s}
+.kicker{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:.08em;margin-bottom:6px}
+.question{font-size:24px;line-height:1.45;font-weight:850;margin-bottom:8px}
+.help{color:var(--muted);font-size:14px;margin-bottom:18px}
+.options{display:grid;gap:12px}
+.choice{
+  width:100%;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  border-radius:15px;
+  padding:16px 18px;
+  cursor:pointer;
+  text-align:left;
+  transition:.15s;
+  display:grid;
+  grid-template-columns:38px 1fr;
+  gap:12px;
+  align-items:start;
+  font:inherit;
+}
+.choice:hover{transform:translateY(-1px);border-color:var(--accent2);background:#fffaf5}
+.choice.selected{border:2px solid var(--accent);background:#f6ebe1}
+.letter{
+  width:34px;height:34px;border-radius:10px;background:var(--soft);
+  display:grid;place-items:center;font-weight:900;color:var(--accent)
+}
+.selected .letter{background:var(--accent);color:white}
+.choice-title{font-weight:800}
+.choice-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.actions{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
+.btn{
+  border:0;border-radius:12px;padding:13px 20px;font-weight:800;cursor:pointer;font-size:15px
+}
+.back{background:#ece7e1;color:#514840}
+.next{background:var(--accent);color:white;margin-left:auto}
+.next:disabled{opacity:.35;cursor:default}
+.hidden{display:none}
+.branch-note{
+  margin-top:14px;padding:12px 14px;border-radius:12px;background:#f7f0e9;
+  color:#5e5148;font-size:13px;border:1px dashed #dac6b2
+}
+.result{
+  margin-top:22px;
+  background:linear-gradient(145deg,#30261f,#4d392a);
+  color:white;border-radius:24px;padding:30px;
+  box-shadow:0 14px 38px rgba(48,38,31,.16)
+}
+.result .tag{display:inline-block;border:1px solid rgba(255,255,255,.32);padding:5px 10px;border-radius:999px;font-size:12px}
+.result h2{font-size:34px;line-height:1.25;margin:10px 0}
+.result p{color:#f3eade}
+.keyline{
+  font-size:24px;font-weight:850;line-height:1.45;border-left:4px solid #d9b692;padding-left:16px;margin:20px 0
+}
+.result-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-top:22px}
+.panel{background:rgba(255,255,255,.08);border-radius:16px;padding:18px}
+.panel h3{margin:0 0 12px;font-size:16px}
+.meter{margin:12px 0}
+.meter-head{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}
+.track{height:8px;background:rgba(255,255,255,.18);border-radius:999px;overflow:hidden}
+.fill{height:100%;background:#ead3bd}
+.matrix-panel{
+  margin-top:18px;background:#fff;color:var(--ink);border-radius:18px;padding:18px
+}
+.matrix-title{font-weight:850;margin-bottom:10px}
+.matrix{
+  position:relative;height:320px;border:1px solid #cfc5bb;border-radius:12px;
+  background:
+   linear-gradient(to right,transparent calc(50% - .5px),#aaa097 calc(50% - .5px),#aaa097 calc(50% + .5px),transparent calc(50% + .5px)),
+   linear-gradient(to bottom,transparent calc(50% - .5px),#aaa097 calc(50% - .5px),#aaa097 calc(50% + .5px),transparent calc(50% + .5px));
+}
+.axis{position:absolute;font-size:12px;font-weight:800;background:#fff;padding:2px 6px;border-radius:6px}
+.top{top:6px;left:50%;transform:translateX(-50%)}
+.bottom{bottom:6px;left:50%;transform:translateX(-50%)}
+.left{left:6px;top:50%;transform:translateY(-50%)}
+.right{right:6px;top:50%;transform:translateY(-50%)}
+.pin{
+  position:absolute;width:54px;height:54px;border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:var(--accent);color:white;display:grid;place-items:center;
+  font-weight:900;box-shadow:0 6px 16px rgba(0,0,0,.18)
+}
+.summary{
+  margin-top:18px;background:#fffaf5;border:1px solid #e4d2c0;color:var(--ink);
+  border-radius:16px;padding:18px
+}
+.summary h3{margin:0 0 10px}
+.summary ul{margin:8px 0 0;padding-left:20px}
+.dev-brief{
+  margin-top:18px;background:#f4eee7;color:var(--ink);border-radius:16px;padding:18px
+}
+.dev-brief h3{margin:0 0 10px}
+.retake{margin-top:18px}
+.footer{font-size:12px;color:var(--muted);margin-top:16px}
+@media(max-width:760px){
+  .hero,.card,.result{padding:22px}
+  .question{font-size:21px}
+  .result-grid{grid-template-columns:1fr}
+  .matrix{height:270px}
+}
 </style>
 </head>
 <body>
-<main class="wrap">
-  <header class="hero">
-    <h1>対話から、会社の「まだ名前のない価値」を見つける</h1>
-    <p class="lead">テツシンデザイン 古内さん × ミドリ印刷 坂本社長の対話から学ぶこと</p>
-  </header>
-
-  <section class="summary">
-    <h2>まず30秒で読める版</h2>
-    <div class="point"><strong>① 「印刷する会社」から「残す会社」へ</strong>人の想い、歴史、記憶を、物として未来に残す。設備や技術だけではなく、ミドリ印刷の仕事の本質をそこまで引き上げて捉える。</div>
-    <div class="point"><strong>② 紙とデジタルを敵対させない</strong>「印刷を残すためにデジタルをやる」。デジタル化するか、紙を守るかではなく、デジタルも使いながら紙だからこそ残せる価値をつくる。</div>
-    <div class="point"><strong>③ 紙は「情報媒体」だけではない</strong>手に持つ、ページをめくる、戻って読む、質感を感じる、所有する、保存する。「手で読む」「ページをめくる間」まで含めて、紙を体験として設計する。</div>
-    <div class="point"><strong>④ ブランドは「会社を一人の人間として考える」と見えやすい</strong>「ミドリ君」はマスコットではなく判断基準。ミドリ印刷が一人の人間なら、何を言うか、何を言わないか、何色を選ぶか、どう振る舞うか。</div>
-    <div class="point"><strong>⑤ 強みは「何ができます」ではなく「なぜそうしているか」にある</strong>なぜ手間のかかる仕事を選ぶのか。なぜ紙を残したいのか。なぜ長く付き合う顧客がいるのか。そこまで聞くと、その会社固有の価値になる。</div>
-    <div class="point"><strong>⑥ デザインは、成果物をつくるところで終わらない</strong>会社案内から、ブランド、紙の体験、職人技、空間、コミュニティ、事業へ。デザインとは「何を作るか」だけでなく「会社の価値をどう未来へ展開するか」を考える仕事。</div>
-    <div class="point"><strong>⑦ 良いヒアリングは「質問すること」ではない</strong>相手が何気なく使った曖昧な言葉を流さず、そこから本質を掘り出す。</div>
-    <div class="key">拾う → 掘る → 比べる → 確かめる → 名づける → 広げる → 着地する</div>
-    <p><strong>この対談を一言でいうなら：</strong><br>デザインとは、まだ言葉になっていない価値を対話によって発見し、言葉・物・体験・事業へ広げていく仕事。</p>
-  </section>
-
-  <h2>ここから先｜興味を持った人だけ深く読む</h2>
-
-  <section>
-    <h2>01｜「会社案内を作るための情報」を集めていない</h2>
-    <p>通常の会社案内のヒアリングなら、「創業年」「主要顧客」「設備」「事業内容」「強み」を聞きます。そこで集まるのは掲載情報です。</p>
-    <p>一方、古内さんが探しているのは、<strong>「この会社は、なぜ存在しているのか」</strong>です。</p>
-    <blockquote><p>「中身というのは具体的にどのあたりですか？」</p><p>「ちゃんとした印刷物とは具体的にどういうものでしょうか？」</p></blockquote>
-    <p>何気ない抽象語を流さず止める。そこから設備、品質、納期、顧客、仕事の選び方へと掘り下げていきます。</p>
-    <div class="key">質問項目を消化するより、相手の言葉の中にある「未定義語」を見つける。</div>
-  </section>
-
-  <section>
-    <h2>02｜「強み」を聞かずに、強みを発見する</h2>
-    <p>「御社の強みは何ですか？」と聞けば、「品質」「対応力」「信頼」「実績」といった一般語になりがちです。</p>
-    <p>古内さんは直接「強み」を聞きません。代わりに、どんな印刷物を「ちゃんとした」と考えるのか、デジタルをどう捉えるのか、なぜクリエイティブ部門をつくったのか、どんな顧客と長く付き合っているのかを聞きます。</p>
-    <p><strong>「手間の必要な仕事を引き受ける」<br>「大切なものを残す」<br>「企画から関わる」<br>「長く伴走する」</strong></p>
-    <p>という、その会社らしい特徴が見えてきます。</p>
-    <div class="key">強みは、本人に強みを聞くより、選択の履歴を聞いた方が見つかる。</div>
-  </section>
-
-  <section>
-    <h2>03｜「何をする会社か」から「なぜする会社か」へ上げる</h2>
-    <table><tr><th>レベル</th><th>言い方</th></tr><tr><td>1</td><td>「記念誌を印刷しています」</td></tr><tr><td>2</td><td>「保存性の高い印刷物が得意です」</td></tr><tr><td>3</td><td><strong>「人の歴史や記憶を残しています」</strong></td></tr></table>
-    <p>古内さんは、具体的な仕事内容から一段抽象度を上げ、<strong>「何かを残していく人たち」</strong>と再定義します。</p>
-    <p>ブランドコンセプトは、多くの場合この「行為の意味」まで上がったところにあります。</p>
-  </section>
-
-  <section>
-    <h2>04｜「印刷を残すためにデジタルをやる」は強いブランドの種</h2>
-    <blockquote><p><strong>「リアル（印刷）を残すためにデジタルをやっている」</strong></p></blockquote>
-    <p>デジタル化に迎合する会社でもない。紙に固執してデジタルを否定する会社でもない。目的は紙の価値を残すこと。デジタルはそのための手段。</p>
-    <div class="key">少し矛盾して聞こえる言葉ほど、ブランドの種になりやすい。修正せず、掘る。</div>
-  </section>
-
-  <section>
-    <h2>05｜紙の価値を「機能」ではなく「体験」へ変換する</h2>
-    <p>紙の良さを「保存性」「一覧性」「書き込みやすさ」だけで説明すると機能論で終わります。</p>
-    <p>古内さんは、<strong>「ページをめくる間」「手で読む」「物感」</strong>という身体性へ話を広げます。</p>
-    <p><strong>「情報をどうレイアウトするか」</strong>から、<br><strong>「どう触らせるか」「どんな速度で読ませるか」「どこで止めるか」「何を持ち帰らせるか」</strong>へ。</p>
-  </section>
-
-  <section>
-    <h2>06｜「ミドリ君」はキャラクターではなく、判断OS</h2>
-    <p>「ミドリ君」はマスコットを作る話ではありません。</p>
-    <blockquote><p>この会社なら、こんな言葉は使わない。</p><p>この会社なら、この色は選ばない。</p><p>この会社なら、この写真は似合わない。</p></blockquote>
-    <div class="key">会社案内、Web、SNS、営業資料が、全部同じ人格から出てくる。その状態が「トーン＆マナーが揃う」ということ。</div>
-  </section>
-
-  <section>
-    <h2>07｜ブランドは「言葉」だけで終わらない</h2>
-    <p>対話は、ブランドブックの話から、工場上階の空きスペース、若手デザイナー、学生、紙見本、断裁・出力体験、クリエイターラウンジ構想へと広がりました。</p>
-    <div class="flow"><span>ブランド思想</span><span>→ 体験</span><span>→ 空間</span><span>→ コミュニティ</span><span>→ 事業</span></div>
-    <p><strong>ブランドは見た目ではなく、企業行動にまで実装されて初めて強くなる。</strong></p>
-  </section>
-
-  <section>
-    <h2>08｜今回の対話に表れている「デザイナーの仕事」</h2>
-    <div class="flow"><span>理念</span><span>→ 言語化</span><span>→ ブランド</span><span>→ ビジュアル</span><span>→ プロダクト</span><span>→ 空間</span><span>→ コミュニティ</span><span>→ 事業</span></div>
-    <p><strong>デザイナーは与えられた制作物を整える人ではなく、会社や地域がどこへ行くかを一緒に考え、それを見える形に変える人</strong>だと捉えられます。</p>
-  </section>
-
-  <section>
-    <h2>09｜古内さんの質問構造</h2>
-    <div class="step"><div class="n">STEP 1　拾う</div>相手の言葉の中から気になる単語を見つける。「中身」「ちゃんとした」「残したい」など。</div>
-    <div class="step"><div class="n">STEP 2　掘る</div>「具体的には？」「例えば？」で、抽象語を事実に下ろす。</div>
-    <div class="step"><div class="n">STEP 3　比べる</div>紙／デジタル、効率／手間など、対立軸を置いて価値観を浮かび上がらせる。</div>
-    <div class="step"><div class="n">STEP 4　確かめる</div>歴史、顧客、実績、過去の意思決定を聞き、「言っていること」と「してきたこと」が一致するかを見る。</div>
-    <div class="step"><div class="n">STEP 5　名づける</div>「つまり御社は○○という会社なのでは？」と、こちらから仮説を言葉にする。</div>
-    <div class="step"><div class="n">STEP 6　広げる</div>ブランドブックだけでなく、空間、商品、サービス、採用、コミュニティまで可能性を展開する。</div>
-    <div class="step"><div class="n">STEP 7　着地する</div>最後は「では、何をデザインすべきか」に戻す。</div>
-  </section>
-
-  <section>
-    <h2>10｜若手が明日から使える7問</h2>
-    <div class="questions">
-      <p>「いまおっしゃった○○って、具体的にはどういう意味ですか？」</p>
-      <p>「例えば、どんな仕事でそれが一番表れましたか？」</p>
-      <p>「なぜ、それをそこまで大切にしているんですか？」</p>
-      <p>「逆に、御社らしくない仕事は何ですか？」</p>
-      <p>「それは昔からですか？ きっかけがありますか？」</p>
-      <p>「お客様は、そこをどう評価していると思いますか？」</p>
-      <p>「つまり御社は○○な会社だ、と考えると近いでしょうか？」</p>
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">BRANCHING TASTING FORM / MOCKUP</div>
+    <h1>博多通りもんのための珈琲。<br>分岐式・味づくりフォーム</h1>
+    <p>最初に「通りもんの何を引き立てたいか」を選ぶと、その回答に応じて次の質問が変わります。回答者は感覚的に選ぶだけ。最後に、味づくりの方向・マトリックス上の位置・試作ブリーフまでまとめて表示します。</p>
+    <div class="point">ポイント：質問数をむやみに増やさず、「選んだ答えによって、次に聞くべきことを変える」。</div>
+    <div class="meta">
+      <span class="badge">表示質問：6問</span>
+      <span class="badge">最初の2問が分岐</span>
+      <span class="badge">結果は4タイプ固定ではなく連続値</span>
     </div>
-    <p>特に最後の一問が重要です。<strong>聞いて終わる人と、デザインにつなげる人の境目</strong>になります。</p>
   </section>
 
-  <section>
-    <h2>11｜そのまま模倣しないための注意点</h2>
-    <p>若手が早い段階から他社事例や自分の知識を入れすぎると、自分の考えにクライアントを誘導する危険があります。</p>
-    <table><tr><th>前半</th><td><strong>聞く</strong></td></tr><tr><th>中盤</th><td><strong>整理する</strong></td></tr><tr><th>後半</th><td><strong>仮説をぶつける</strong></td></tr></table>
-    <p>そして、仮説と事実を混同しないこと。「ミドリ印刷＝残す会社」は強い仮説ですが、社員、顧客、過去の仕事、今後の経営方針から検証していく必要があります。</p>
-  </section>
-
-  <section>
-    <h2>12｜今回見つかった「ミドリ印刷のブランド仮説」</h2>
-    <div class="brand-grid">
-      <div><strong>残す</strong>使い捨てではなく、未来に残るものをつくる。</div>
-      <div><strong>物化する</strong>想い、言葉、歴史を物理的なものとして残す。</div>
-      <div><strong>手で読む</strong>紙を身体的な体験として考える。</div>
-      <div><strong>役に立つ</strong>「いつも何かの役に立ちたい」という創業精神。</div>
-      <div><strong>手間を引き受ける</strong>簡単なものより、品質や相談が必要な仕事を選ぶ。</div>
-      <div><strong>職人技</strong>紙目、色、断裁、製本など、見えない知識を持っている。</div>
-      <div><strong>リアル × デジタル</strong>デジタル化するためではなく、リアルな価値を残すためにデジタルを使う。</div>
-      <div><strong>開く</strong>工場や技術をクリエイター、学生、地域へ開く。</div>
+  <section class="card" id="formCard">
+    <div class="progress-wrap">
+      <div class="progress-meta"><span id="stepLabel">STEP 1</span><span id="stepCount">1 / 6</span></div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
     </div>
-    <div class="key">ブランドの核候補：<br>「大切なものを、残る形にする。」</div>
-    <p>これは現時点での仮説です。すぐに企業スローガンとして決定するのではなく、今後の検証対象として扱うのが適切です。</p>
+    <div id="questionArea"></div>
+    <div id="branchNote" class="branch-note hidden"></div>
+    <div class="actions">
+      <button class="btn back" id="backBtn">戻る</button>
+      <button class="btn next" id="nextBtn" disabled>次へ</button>
+    </div>
   </section>
 
-  <section class="closing">
-    <h2>最後に｜デザイナーへ</h2>
-    <p>今回学んでほしいのは、「ミドリ君」という案や「クリエイターラウンジ」という企画そのものではありません。</p>
-    <p>重要なのは、<strong>それらがどうやって生まれたか</strong>です。</p>
-    <p>最初にあったのは「ちゃんとした印刷物」という何気ない一言でした。そこを「具体的には？」と止めた。そこから、品質、歴史、紙、デジタル、残す、物感、会社の人格、職人、空間、コミュニティまで話が広がっていきました。</p>
-    <p>だからデザイナーに必要なのは、最初から答えを持っていることではありません。</p>
-    <p class="big">相手の言葉に引っかかり、掘り、つなぎ、意味を見つけ、「こういうことではないですか？」と返せること。</p>
-    <p>その往復の中から、クライアント自身もまだ知らなかった価値が見えてきます。</p>
-    <div class="key">答えをデザインする前に、問いによって価値を発見する。</div>
-  </section>
+  <section id="resultArea" class="hidden"></section>
+  <div class="footer">※味覚研究用の官能評価票ではなく、明月堂様との共同開発の方向を短時間で共有するための企画用プロトタイプです。</div>
+</div>
 
-  <p class="note">社内共有用整理資料。テツシンデザイン古内さんとミドリ印刷坂本社長の対話内容をもとに、若手デザイナーが実務へ応用しやすいよう再構成。</p>
-</main>
+<script>
+const root = {
+ id:"goal",
+ q:"通りもんと珈琲を合わせたとき、何が起きるのが理想ですか？",
+ help:"まず、珈琲ではなく「通りもんをどう感じさせたいか」から選びます。",
+ options:[
+  {k:"sweet",letter:"A",title:"白あん・ミルクの甘さを、もっとおいしく",sub:"まろやかさ、乳感、上品な甘さを引き立てたい"},
+  {k:"roast",letter:"B",title:"バター・薄皮の香ばしさを、もっと豊かに",sub:"焼き香、ナッツ感、香ばしい余韻を強めたい"},
+  {k:"clean",letter:"C",title:"甘さの後口を整え、次の一口へ",sub:"重さを残しすぎず、口をきれいにしたい"},
+  {k:"balance",letter:"D",title:"どこか一つでなく、全体を自然にまとめたい",sub:"通りもんらしさを崩さず、完成度を上げたい"}
+ ]
+};
+
+const branchQs = {
+ sweet:{
+  id:"branch",
+  q:"「甘さを引き立てる」としたら、どちらに近いですか？",
+  help:"同じ“甘さを活かす”でも、方向を一段絞ります。",
+  note:"Aを選んだため、白あん・練乳・バターの甘さとの“共鳴”を深掘りしています。",
+  options:[
+   {k:"creamy",letter:"A",title:"ミルキーさを、より丸く感じたい",sub:"練乳・生クリーム・バターの一体感"},
+   {k:"elegant",letter:"B",title:"甘さを、より上品に感じたい",sub:"甘いが重くない、端正な印象"},
+   {k:"caramel",letter:"C",title:"キャラメルのような甘香ばしさへ",sub:"糖の加熱香と珈琲の焙煎香をつなぐ"},
+   {k:"soft",letter:"D",title:"甘さを増やさず、やさしく受け止めたい",sub:"珈琲が主張しすぎない"}
+  ]
+ },
+ roast:{
+  id:"branch",
+  q:"「香ばしさを引き立てる」としたら、何に近いですか？",
+  help:"香ばしさの中でも、狙う香調を絞ります。",
+  note:"Bを選んだため、薄皮・バターの焼成香と珈琲の“ロースト共鳴”を深掘りしています。",
+  options:[
+   {k:"butter",letter:"A",title:"バターの香りを豊かに",sub:"クリーミーで丸い香ばしさ"},
+   {k:"toast",letter:"B",title:"薄皮の焼き香を引き立てたい",sub:"トースト、パン、焼菓子のような香り"},
+   {k:"nut",letter:"C",title:"ナッツのような香ばしさへ",sub:"アーモンド、ヘーゼルナッツ系"},
+   {k:"cacao",letter:"D",title:"カカオのような深みへ",sub:"ミルクチョコ、ココアのような方向"}
+  ]
+ },
+ clean:{
+  id:"branch",
+  q:"「後口を整える」としたら、どう整えたいですか？",
+  help:"“すっきり”にも複数の方法があります。",
+  note:"Cを選んだため、通りもんの余韻をどう“ほどく”かを深掘りしています。",
+  options:[
+   {k:"gentle",letter:"A",title:"軽さで、やさしく整える",sub:"苦味や酸味を強くせず、さらっと"},
+   {k:"bitter",letter:"B",title:"ほどよい苦味で引き締める",sub:"甘味との対比を少しつくる"},
+   {k:"fresh",letter:"C",title:"穏やかな爽やかさで整える",sub:"酸っぱくせず、明るい後味へ"},
+   {k:"short",letter:"D",title:"余韻を短くして、きれいに切る",sub:"次の一口へ戻りやすく"}
+  ]
+ },
+ balance:{
+  id:"branch",
+  q:"「全体をまとめる」としたら、何を優先しますか？",
+  help:"バランス型でも、中心に置く価値を決めます。",
+  note:"Dを選んだため、“通りもんらしさを崩さない”ための優先順位を深掘りしています。",
+  options:[
+   {k:"torimon",letter:"A",title:"とにかく通りもんを主役に",sub:"珈琲は黒子として支える"},
+   {k:"pair",letter:"B",title:"通りもんと珈琲を五分五分に",sub:"二つで一つの完成形"},
+   {k:"coffee",letter:"C",title:"珈琲単体の魅力も欲しい",sub:"持ち帰り商品として成立させたい"},
+   {k:"experience",letter:"D",title:"見学体験として印象に残したい",sub:"飲み比べや発見そのものを価値に"}
+  ]
+ }
+};
+
+const commonQs = [
+ {
+  id:"aroma",
+  q:"珈琲から最初に感じたい香りは、どれに近いですか？",
+  help:"専門用語ではなく、第一印象で選んでください。",
+  options:[
+   {k:"sweet",letter:"A",title:"キャラメル・ブラウンシュガー",sub:"甘香ばしい、やわらかな香り"},
+   {k:"nutty",letter:"B",title:"ナッツ・ミルクチョコ",sub:"香ばしく、コクを感じる香り"},
+   {k:"clean",letter:"C",title:"軽く、すっきりした香り",sub:"重さを残さない"},
+   {k:"neutral",letter:"D",title:"特定の香りを立てず、自然になじむ",sub:"通りもんを邪魔しない"}
+  ]
+ },
+ {
+  id:"bitterness",
+  q:"通りもんを食べた直後の苦味は、どう感じたいですか？",
+  help:"“苦い珈琲が好きか”ではなく、通りもんとの関係で選びます。",
+  options:[
+   {k:"soft",letter:"A",title:"やわらかく、丸く受け止める",sub:"苦味はあまり意識しない"},
+   {k:"medium",letter:"B",title:"少し苦味を感じ、甘さを引き締める",sub:"対比はあるが強すぎない"},
+   {k:"strong",letter:"C",title:"しっかり苦味で切り替える",sub:"甘さとのコントラストを明確に"},
+   {k:"hidden",letter:"D",title:"苦味より香りを中心にしたい",sub:"苦味は裏側に置く"}
+  ]
+ },
+ {
+  id:"body",
+  q:"珈琲の飲みごたえは、どのくらいが合いそうですか？",
+  help:"口当たりの厚みを選びます。",
+  options:[
+   {k:"light",letter:"A",title:"軽く、さらっと",sub:"飲み疲れしない"},
+   {k:"medium",letter:"B",title:"ほどよく",sub:"通りもんにも珈琲にも偏らない"},
+   {k:"rich",letter:"C",title:"しっかり",sub:"コクを感じたい"},
+   {k:"full",letter:"D",title:"濃厚さを受け止めるくらい豊かに",sub:"満足感のある厚み"}
+  ]
+ },
+ {
+  id:"finish",
+  q:"珈琲を飲んだ後、理想に近いのは？",
+  help:"ここはペアリング全体の“終わり方”を決める重要な質問です。",
+  options:[
+   {k:"linger",letter:"A",title:"通りもんの余韻を長く楽しみたい",sub:"甘さを残す"},
+   {k:"torimon_again",letter:"B",title:"もう一口、通りもんを食べたくなりたい",sub:"次の一口へ戻す"},
+   {k:"coffee_again",letter:"C",title:"もう一口、珈琲を飲みたくなりたい",sub:"珈琲の魅力も残す"},
+   {k:"alternate",letter:"D",title:"通りもんと珈琲を交互に楽しみ続けたい",sub:"循環するペアリング"}
+  ]
+ }
+];
+
+const state = {root:null, branch:null, common:{}, history:[], page:0};
+let flow = [];
+
+function rebuildFlow(){
+  flow = [root];
+  if(state.root) flow.push(branchQs[state.root]);
+  flow.push(...commonQs);
+}
+
+function currentQ(){ return flow[state.page]; }
+
+const area = document.getElementById("questionArea");
+const branchNote = document.getElementById("branchNote");
+const nextBtn = document.getElementById("nextBtn");
+const backBtn = document.getElementById("backBtn");
+const bar = document.getElementById("bar");
+const stepLabel = document.getElementById("stepLabel");
+const stepCount = document.getElementById("stepCount");
+const formCard = document.getElementById("formCard");
+const resultArea = document.getElementById("resultArea");
+
+function selectedFor(q){
+ if(q.id==="goal") return state.root;
+ if(q.id==="branch") return state.branch;
+ return state.common[q.id] || null;
+}
+function setSelected(q,k){
+ if(q.id==="goal"){
+   if(state.root!==k){ state.root=k; state.branch=null; state.common={}; }
+   rebuildFlow();
+ } else if(q.id==="branch"){
+   state.branch=k;
+ } else {
+   state.common[q.id]=k;
+ }
+}
+function render(){
+ rebuildFlow();
+ const q=currentQ();
+ const total = state.root ? 6 : 6;
+ stepLabel.textContent = "STEP " + (state.page+1);
+ stepCount.textContent = (state.page+1) + " / " + total;
+ bar.style.width = ((state.page)/total*100) + "%";
+
+ const selected=selectedFor(q);
+ area.innerHTML = `
+   <div class="kicker">${q.id==="branch" ? "回答に応じた分岐質問" : "味づくりの方向確認"}</div>
+   <div class="question">${q.q}</div>
+   <div class="help">${q.help||""}</div>
+   <div class="options">
+     ${q.options.map(o=>`
+       <button class="choice ${selected===o.k?"selected":""}" data-k="${o.k}">
+         <span class="letter">${o.letter}</span>
+         <span><div class="choice-title">${o.title}</div><div class="choice-sub">${o.sub||""}</div></span>
+       </button>`).join("")}
+   </div>`;
+ document.querySelectorAll(".choice").forEach(btn=>{
+   btn.onclick=()=>{setSelected(q,btn.dataset.k); render();}
+ });
+
+ if(q.note){
+   branchNote.textContent=q.note;
+   branchNote.classList.remove("hidden");
+ } else branchNote.classList.add("hidden");
+
+ nextBtn.disabled = !selectedFor(q);
+ nextBtn.textContent = state.page===5 ? "結果を見る" : "次へ";
+ backBtn.style.visibility = state.page===0 ? "hidden" : "visible";
+}
+
+function score(){
+  let s={resonance:50, clean:50, body:50, bitterness:50, torimon:65, roast:50, sweetness:50};
+
+  const r=state.root;
+  if(r==="sweet"){s.resonance+=22;s.sweetness+=25;s.clean-=10;s.torimon+=8}
+  if(r==="roast"){s.resonance+=16;s.roast+=28;s.body+=10}
+  if(r==="clean"){s.clean+=28;s.resonance-=8;s.body-=8}
+  if(r==="balance"){s.resonance+=8;s.clean+=8;s.torimon+=12}
+
+  const b=state.branch;
+  const branchEffects={
+    creamy:{resonance:14,sweetness:18,body:8},
+    elegant:{sweetness:10,clean:8,body:-4},
+    caramel:{resonance:16,roast:12,sweetness:10},
+    soft:{torimon:10,bitterness:-8,body:-5},
+    butter:{resonance:12,roast:10,body:8},
+    toast:{roast:18,resonance:10},
+    nut:{roast:20,body:8},
+    cacao:{roast:18,body:14,bitterness:8},
+    gentle:{clean:12,bitterness:-10,body:-8},
+    bitter:{clean:10,bitterness:16},
+    fresh:{clean:18,body:-6},
+    short:{clean:20,body:-8},
+    torimon:{torimon:20,bitterness:-5},
+    pair:{resonance:10,clean:6,torimon:6},
+    coffee:{torimon:-12,body:8,bitterness:6},
+    experience:{clean:5,resonance:5}
+  };
+  if(branchEffects[b]) Object.entries(branchEffects[b]).forEach(([k,v])=>s[k]+=v);
+
+  const aroma=state.common.aroma;
+  if(aroma==="sweet"){s.sweetness+=16;s.resonance+=10}
+  if(aroma==="nutty"){s.roast+=16;s.body+=6;s.resonance+=8}
+  if(aroma==="clean"){s.clean+=12;s.body-=6}
+  if(aroma==="neutral"){s.torimon+=10;s.resonance+=3}
+
+  const bit=state.common.bitterness;
+  if(bit==="soft"){s.bitterness-=18;s.torimon+=7}
+  if(bit==="medium"){s.bitterness+=6;s.clean+=4}
+  if(bit==="strong"){s.bitterness+=22;s.clean+=10;s.torimon-=7}
+  if(bit==="hidden"){s.bitterness-=10;s.resonance+=4}
+
+  const body=state.common.body;
+  if(body==="light"){s.body-=22;s.clean+=8}
+  if(body==="medium"){s.body+=0}
+  if(body==="rich"){s.body+=16;s.roast+=5}
+  if(body==="full"){s.body+=26;s.roast+=7}
+
+  const finish=state.common.finish;
+  if(finish==="linger"){s.clean-=12;s.sweetness+=7}
+  if(finish==="torimon_again"){s.clean+=16;s.torimon+=14}
+  if(finish==="coffee_again"){s.body+=7;s.torimon-=8}
+  if(finish==="alternate"){s.resonance+=8;s.clean+=8;s.torimon+=5}
+
+  Object.keys(s).forEach(k=>s[k]=Math.max(0,Math.min(100,Math.round(s[k]))));
+  return s;
+}
+
+function resultLabel(s){
+  if(s.resonance>=65 && s.clean>=60) return ["共鳴 × ほどき両立型","香りでは寄り添い、後口ではほどく。"];
+  if(s.resonance>=68 && s.roast>=65) return ["香ばし共鳴型","通りもんの焼き香と、珈琲の焙煎香を重ねる。"];
+  if(s.resonance>=68 && s.sweetness>=65) return ["ミルキー調和型","白あん・乳・甘香ばしさを、丸くつなぐ。"];
+  if(s.clean>=68) return ["余韻リセット型","甘さを受け止め、次の一口へ戻す。"];
+  return ["バランス調和型","通りもんを主役に、全体を自然にまとめる。"];
+}
+
+function devBrief(s){
+  let roast = s.roast>=68 ? "中煎り〜中深煎り" : s.clean>=68 ? "中煎り中心" : "中煎り〜中深煎りの間";
+  let aroma = s.sweetness>=65 && s.roast>=65 ? "キャラメル／ナッツ／ミルクチョコ系"
+            : s.roast>=65 ? "ナッツ／カカオ／トースト系"
+            : s.sweetness>=65 ? "キャラメル／ブラウンシュガー系"
+            : "甘香ばしく、主張しすぎない方向";
+  let bitter = s.bitterness>=68 ? "中〜やや強め" : s.bitterness<=35 ? "弱め〜中程度" : "中程度";
+  let body = s.body>=68 ? "やや豊か〜豊か" : s.body<=35 ? "軽やか" : "中程度";
+  let finish = s.clean>=65 ? "きれいでやや短め。次の一口へ戻す" : "甘い余韻を残しつつ重くしすぎない";
+  return {roast,aroma,bitter,body,finish};
+}
+
+function showResult(){
+ const s=score(), [name,key]=resultLabel(s), brief=devBrief(s);
+ const x=Math.max(10,Math.min(90,50 + (s.clean-s.resonance)*0.42));
+ const y=Math.max(10,Math.min(90,50 - (s.body-50)*0.55));
+ bar.style.width="100%";
+ formCard.classList.add("hidden");
+ resultArea.classList.remove("hidden");
+ resultArea.innerHTML=`
+ <div class="result">
+   <span class="tag">回答から見える「目指したい方向」</span>
+   <h2>${name}</h2>
+   <div class="keyline">${key}</div>
+   <p>4タイプに固定して当てはめるのではなく、回答を「共鳴・ほどき・コク・苦味・通りもん主役度」などの連続値に変換し、試作の方向を出しています。</p>
+
+   <div class="result-grid">
+     <div class="panel">
+       <h3>今回の味覚プロファイル</h3>
+       ${meter("香りの共鳴",s.resonance)}
+       ${meter("後口のほどき",s.clean)}
+       ${meter("コク・厚み",s.body)}
+       ${meter("苦味の強さ",s.bitterness)}
+       ${meter("通りもん主役度",s.torimon)}
+     </div>
+     <div class="panel">
+       <h3>試作ブリーフ</h3>
+       <div><strong>焙煎</strong><br>${brief.roast}</div><br>
+       <div><strong>香り</strong><br>${brief.aroma}</div><br>
+       <div><strong>苦味</strong><br>${brief.bitter}</div><br>
+       <div><strong>コク</strong><br>${brief.body}</div><br>
+       <div><strong>後味</strong><br>${brief.finish}</div>
+     </div>
+   </div>
+
+   <div class="matrix-panel">
+     <div class="matrix-title">味の方向性マップ</div>
+     <div class="matrix">
+       <div class="axis top">コク深い</div>
+       <div class="axis bottom">軽やか</div>
+       <div class="axis left">寄り添う</div>
+       <div class="axis right">ほどく</div>
+       <div class="pin" style="left:${x}%;top:${y}%">●</div>
+     </div>
+   </div>
+
+   <div class="summary">
+     <h3>この結果を、打ち合わせではこう使う</h3>
+     <ul>
+       <li>「この結果が正解です」ではなく、<strong>「この方向で合っていますか？」</strong>と確認する。</li>
+       <li>そこから「もう少し香ばしく」「もう少し軽く」など、次の試作条件を決める。</li>
+       <li>最終的には、明月堂様の回答と実際の試飲結果を重ねて理想ゾーンを更新する。</li>
+     </ul>
+   </div>
+
+   <div class="dev-brief">
+     <h3>この方式のメリット</h3>
+     回答者は専門用語を考える必要がありません。一方、開発側では回答が味覚パラメータへ変換されるため、アンジェリカコーヒー側へ「次に何を変えるか」を具体的に渡せます。
+   </div>
+   <div class="retake"><button class="btn back" onclick="restart()">最初から試す</button></div>
+ </div>`;
+}
+
+function meter(label,val){
+ return `<div class="meter">
+ <div class="meter-head"><span>${label}</span><strong>${val}</strong></div>
+ <div class="track"><div class="fill" style="width:${val}%"></div></div>
+ </div>`;
+}
+
+nextBtn.onclick=()=>{
+ const q=currentQ();
+ if(!selectedFor(q)) return;
+ if(state.page<5){state.page++;render();} else showResult();
+};
+backBtn.onclick=()=>{if(state.page>0){state.page--;render();}};
+function restart(){
+ state.root=null;state.branch=null;state.common={};state.page=0;
+ resultArea.classList.add("hidden");formCard.classList.remove("hidden");render();
+}
+
+rebuildFlow(); render();
+</script>
 </body>
 </html>
